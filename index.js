@@ -37,8 +37,7 @@ Notes.prototype.connect = function Notes_connect(callback)
 
   me.imap.once('end', function Notes_connect_onEnd()
   {
-// TODO:
-    console.log('Connection ended');
+    // TODO: emit events
   });
 
   me.imap.connect();
@@ -81,8 +80,6 @@ Notes.prototype.search = function Notes_search(criteria, callback)
 
     f.on('message', function(msg, seqno)
     {
-      console.log('Message #%d', seqno);
-
       msg.on('body', function(stream, info)
       {
         var headerParsed = false
